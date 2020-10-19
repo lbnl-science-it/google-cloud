@@ -13,7 +13,7 @@ set -e
 IDLE_TIME=3600
 
 echo "Fetching the auto-shutdown script"
-wget https://raw.githubusercontent.com/lbnl-science-it/google-cloud/auto-shutdown/auto-shutdown.py
+curl -O https://raw.githubusercontent.com/lbnl-science-it/google-cloud/main/auto-shutdown/auto-shutdown.py
 
 echo "Loading the auto-shutdown script in cron to run every 5 minutes"
 
