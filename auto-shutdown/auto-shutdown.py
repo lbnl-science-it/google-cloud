@@ -1,6 +1,7 @@
+#!/usr/bin/env python
+
 import requests
 from datetime import datetime
-import getopt, sys
 import urllib3
 import os
 import argparse

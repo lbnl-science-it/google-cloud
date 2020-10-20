@@ -13,8 +13,9 @@ set -e
 IDLE_TIME=3600
 
 echo "Fetching the auto-shutdown script"
+cd ~
 curl -O https://raw.githubusercontent.com/lbnl-science-it/google-cloud/main/auto-shutdown/auto-shutdown.py
+chmod u+x auto-shutdown.py
 
 echo "Loading the auto-shutdown script in cron to run every 5 minutes"
-
-(crontab -l 2>/dev/null; echo "5 * * * * /usr/bin/python $PWD/auto-shutdown.py --time $IDLE_TIME --ignore-connections") | crontab -
+(crontab -l 2>/dev/null; echo "5 * * * * $PWD/auto-shutdown.py --time $IDLE_TIME --ignore-connections") | crontab -
