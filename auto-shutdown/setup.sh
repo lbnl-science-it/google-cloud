@@ -18,4 +18,4 @@ curl -O https://raw.githubusercontent.com/lbnl-science-it/google-cloud/main/auto
 chmod u+x auto-shutdown.py
 
 echo "Loading the auto-shutdown script in cron to run every 5 minutes"
-(crontab -l 2>/dev/null; echo "*/5 * * * * /bin/bash -l -exec \"$PWD/auto-shutdown.py --time $IDLE_TIME --ignore-connections\"") | crontab -
+(crontab -l 2>/dev/null || true; echo "*/5 * * * * /bin/bash -l -exec \"$PWD/auto-shutdown.py --time $IDLE_TIME --ignore-connections\"") | crontab -
